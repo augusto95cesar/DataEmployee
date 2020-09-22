@@ -1,0 +1,93 @@
+﻿<Window x:Class="DataEmployee.View.Funcionario.Editar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataEmployee.View.Funcionario"
+        mc:Ignorable="d"
+        Title="Editar" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="93,106,0,0" 
+                 TextWrapping="Wrap"  
+                 VerticalAlignment="Top" 
+                 Width="294" 
+                 RenderTransformOrigin="-0.48,-0.946" 
+                 Name="NomeFuncionario"/>
+        <Label Content="Nome" 
+               HorizontalAlignment="Left" 
+               Margin="90,79,0,0" VerticalAlignment="Top" 
+               RenderTransformOrigin="0.092,0.077"/>
+        <TextBox HorizontalAlignment="Left" 
+            Height="23" 
+            Margin="94,168,0,0" 
+            TextWrapping="Wrap"  
+            VerticalAlignment="Top" 
+            Width="293" 
+            RenderTransformOrigin="-0.48,-0.946" 
+            Name="cpf"/>
+        <Label Content="CPF" 
+            HorizontalAlignment="Left" 
+            Margin="91,141,0,0" VerticalAlignment="Top" 
+            RenderTransformOrigin="0.092,0.077"/>
+        <Button Content="Voltar" 
+                HorizontalAlignment="Left" 
+                Margin="95,286,0,0" 
+                VerticalAlignment="Top" 
+                Width="75"
+                Click="Voltar" RenderTransformOrigin="-3.013,0.05"/>
+        <Grid HorizontalAlignment="Left" 
+              Height="232" 
+              Margin="424,166,0,0" 
+              VerticalAlignment="Top" 
+              Width="335">
+            <ListView   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"  
+                    Name="TelefoneList" Margin="1,3,1,1" >
+                <ListView.View>
+                    <GridView>
+                        <!--<GridViewColumn  DisplayMemberBinding="{Binding Id}" 
+                                     Header="Cod" >
+                        </GridViewColumn>-->
+                        <GridViewColumn  DisplayMemberBinding="{Binding NumeroTelefone}" 
+                                     Header="NUMERO" Width="200"  >
+                        </GridViewColumn>
+
+                        <GridViewColumn  Header=""  Width="120">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Button Width="100" Content="Remover" DataContext="{Binding Id}"  Click="RemoveTelefone"  ></Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn >
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <TextBox HorizontalAlignment="Left" 
+            Height="23" 
+            Margin="424,106,0,0" 
+            TextWrapping="Wrap"  
+            VerticalAlignment="Top" 
+            Width="339" 
+            RenderTransformOrigin="-0.48,-0.946" 
+           Name="TextTelefone"/>
+        <Label Content="Telefone" 
+            HorizontalAlignment="Left" 
+            Margin="421,79,0,0" VerticalAlignment="Top" 
+            RenderTransformOrigin="0.092,0.077"/>
+        <Button Content="Salvar" 
+            HorizontalAlignment="Left" 
+            Margin="287,285,0,0" 
+            VerticalAlignment="Top" 
+            Width="75"
+            Click="Cadastar" RenderTransformOrigin="-3.013,0.05"/>
+        <Button Content="+" 
+            HorizontalAlignment="Left" 
+            Margin="686,78,0,0" 
+            VerticalAlignment="Top" 
+            Width="75"
+            Click="AddTelefone" RenderTransformOrigin="-3.013,0.05"/>
+    </Grid>
+</Window>

@@ -7,17 +7,42 @@
         mc:Ignorable="d"
         Title="Employee" Height="450" Width="800">
     <Grid>
-        <ListView Background="Black"  Name="estouro" Margin="0,166,2,1" >
+        <ListView   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"  
+                    Name="Funcionarios" Margin="0,121,2,3" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  DisplayMemberBinding="{Binding Nome}" Header="Nome"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Cpf}" Header="Cpf"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding <Button Content="Atualizar" Width="50"    />}" ></GridViewColumn>
-                     
+                    <GridViewColumn  DisplayMemberBinding="{Binding Id}" 
+                                     Header="Cod" 
+                                     Width="50">
+                    </GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Nome}" 
+                                     Header="Nome" 
+                                     Width="300">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Cpf}" 
+                                    Header="Cpf" 
+                                    Width="200" >
+                    </GridViewColumn>
+                    <GridViewColumn  Header="" 
+                                     Width="70">
+                        <GridViewColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button Width="50" Content="Editar" DataContext="{Binding Id}"    Click="EditarFuncionario"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn >
+                    <GridViewColumn  Header="" 
+                                     Width="70">
+                        <GridViewColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button Width="50" Content="Deletar" DataContext="{Binding Id}"    Click="DeletarFuncionario"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn >
                 </GridView>
             </ListView.View>
         </ListView>
-
-
+        <Button Click="NovoFuncionario" Name="Novo" Content="Novo" HorizontalAlignment="Left" Margin="552,92,0,0" VerticalAlignment="Top" Width="231" RenderTransformOrigin="0.095,2.9"/>
     </Grid>
 </Window>
